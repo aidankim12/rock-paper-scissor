@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let computerScore = 0;
+        let humanScore = 0;
+        function getComputerChoice() {
+            let numChoice = Math.floor(Math.random() * 3)  + 1;
+            if (numChoice === 1) {
+                return "rock";
+            } else if (numChoice === 2) {
+                return "paper";
+            } else if (numChoice === 3) {
+                return "scissor";
+            }
+        }
+        function getHumanChoice() {
+            let userInput = String(prompt("Enter rock, paper, or scissor: ")).toLowerCase();
+                while (userInput !== 'rock' && userInput !== 'paper' && userInput !== 'scissor') {
+                    userInput = String(prompt("Input is not valid! Please enter rock, paper, or scissor: ")).toLowerCase();
+                }
+            return userInput;
+        }
+        function playRound() {
+            let computerChoice = getComputerChoice();
+            let humanChoice = getHumanChoice();
+            console.log(`Player Choice: ${humanChoice}\nComputer Choice: ${computerChoice}`);
+            if (humanChoice === 'rock' && computerChoice === 'scissor' || humanChoice === 'paper' && computerChoice === 'rock' || humanChoice === 'scissor' && computerChoice === 'paper') {
+                ++humanScore;
+                console.log("Congratulations! You did it!");
+            } else if (humanChoice === computerChoice) {
+                console.log("It's a tie! Go again!");
+            } else {
+                ++computerScore;
+                console.log("Aw shucks, better luck next time!");
+            }
+            console.log(`CURRENT SCORE\nPlayer Score: ${humanScore}\nComputer Score: ${computerScore}`);
+        }
+        function playGame() {
+            for (i = 0; i < 5; i++) {
+                console.log(`ROUND ${i + 1}`);
+                playRound();
+            }
+        }
+    </script>
+</body>
+</html>
