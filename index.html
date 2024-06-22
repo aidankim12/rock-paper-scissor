@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         let computerScore = 0;
         let humanScore = 0;
         function getComputerChoice() {
-            let numChoice = Math.floor(Math.random() * 3)  + 1;
+            let numChoice = Math.floor(Math.random() * 3) + 1;
             if (numChoice === 1) {
                 return "rock";
             } else if (numChoice === 2) {
@@ -22,9 +24,9 @@
         }
         function getHumanChoice() {
             let userInput = String(prompt("Enter rock, paper, or scissor: ")).toLowerCase();
-                while (userInput !== 'rock' && userInput !== 'paper' && userInput !== 'scissor') {
-                    userInput = String(prompt("Input is not valid! Please enter rock, paper, or scissor: ")).toLowerCase();
-                }
+            while (userInput !== 'rock' && userInput !== 'paper' && userInput !== 'scissor') {
+                userInput = String(prompt("Input is not valid! Please enter rock, paper, or scissor: ")).toLowerCase();
+            }
             return userInput;
         }
         function playRound() {
@@ -50,4 +52,5 @@
         }
     </script>
 </body>
+
 </html>
